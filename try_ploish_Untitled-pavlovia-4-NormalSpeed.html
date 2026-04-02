@@ -221,7 +221,7 @@ const fillers = [
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `
         <div class="small-info">Practice</div>
-        <p>Zaczniemy od dwóch rund próbnych.</p>
+        <p>Zaczniemy od kilku rund próbnych.</p>
         <p>Zobaczysz ciąg liter, później kolejny. Zdecyduj, czy dany ciąg liter jest słówkiem lub nie.</p>
         <p>Naciśnij P dla prawdziwych słów i Q dla nieprawdziwych.</p>
         <p>Naciśnij spację by kontynuować.</p>
@@ -249,7 +249,7 @@ const fillers = [
       stimulus: `
         <div class="small-info">Practice</div>
         <div class="stimulus">kurtka</div>
-        <p>W = real word, O = nonword</p>
+        <p>P = prawdzie słowo, Q = nieprawdziwe słowo</p>
       `,
       choices: ['p', 'q'],
       data: {
@@ -299,7 +299,7 @@ const fillers = [
       stimulus: `
         <div class="small-info">Practice</div>
         <div class="stimulus">blubladi</div>
-        <p>W = real word, O = nonword</p>
+        <p>P = prawdzie słowo, Q = nieprawdziwe słowo</p>
       `,
       choices: ['p', 'q'],
       data: {
@@ -320,15 +320,15 @@ const fillers = [
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `
         <div class="small-info">Practice</div>
-        <div class="stimulus">Blue</div>
+        <div class="stimulus">kierować</div>
       `,
       choices: "NO_KEYS",
       trial_duration: 2000,
       data: {
         phase: 'practice_prime',
         practice: true,
-        prime: 'Blue',
-        target: 'House'
+        prime: 'kierować',
+        target: 'wioska'
       }
     };
 
@@ -336,21 +336,21 @@ const fillers = [
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `
         <div class="small-info">Practice</div>
-        <div class="stimulus">House</div>
-        <p>W = real word, O = nonword</p>
+        <div class="stimulus">wioska</div>
+        <p>P = prawdzie słowo, Q = nieprawdziwe słowo</p>
       `,
-      choices: ['w', 'o'],
+      choices: ['p', 'q'],
       data: {
         phase: 'practice_target',
         practice: true,
-        prime: 'Blue',
-        target: 'House',
+        prime: 'kierować',
+        target: 'wioska',
         item_type: 'real',
-        correct_response: 'w'
+        correct_response: 'p'
       },
       on_finish: function(data) {
         data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
-        data.result = data.correct ? 'right' : 'wrong';
+        data.result = data.correct ? 'Dobrze' : 'Źle';
       }
     };
 
@@ -358,14 +358,14 @@ const fillers = [
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `
         <div class="small-info">Practice</div>
-        <div class="stimulus">Yellow</div>
+        <div class="stimulus">biegać</div>
       `,
       choices: "NO_KEYS",
       trial_duration: 2000,
       data: {
         phase: 'practice_prime',
         practice: true,
-        prime: 'Yellow',
+        prime: 'biegać',
         target: 'trudaki'
       }
     };
@@ -375,20 +375,20 @@ const fillers = [
       stimulus: `
         <div class="small-info">Practice</div>
         <div class="stimulus">trudaki</div>
-        <p>W = real word, O = nonword</p>
+        <p>P = prawdzie słowo, Q = nieprawdziwe słowo</p>
       `,
-      choices: ['w', 'o'],
+      choices: ['p', 'q'],
       data: {
         phase: 'practice_target',
         practice: true,
-        prime: 'Yellow',
+        prime: 'biegać',
         target: 'trudaki',
         item_type: 'nonword',
-        correct_response: 'o'
+        correct_response: 'q'
       },
       on_finish: function(data) {
         data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
-        data.result = data.correct ? 'right' : 'wrong';
+        data.result = data.correct ? 'Dobrze' : 'Źle';
       }
     };
     
