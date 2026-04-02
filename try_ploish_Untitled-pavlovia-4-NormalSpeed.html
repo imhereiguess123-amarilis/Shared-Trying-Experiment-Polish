@@ -316,6 +316,82 @@ const fillers = [
       }
     };
 
+        const practice_prime_trial_real2 = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `
+        <div class="small-info">Practice</div>
+        <div class="stimulus">Blue</div>
+      `,
+      choices: "NO_KEYS",
+      trial_duration: 2000,
+      data: {
+        phase: 'practice_prime',
+        practice: true,
+        prime: 'Blue',
+        target: 'House'
+      }
+    };
+
+    const practice_target_trial_real2 = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `
+        <div class="small-info">Practice</div>
+        <div class="stimulus">House</div>
+        <p>W = real word, O = nonword</p>
+      `,
+      choices: ['w', 'o'],
+      data: {
+        phase: 'practice_target',
+        practice: true,
+        prime: 'Blue',
+        target: 'House',
+        item_type: 'real',
+        correct_response: 'w'
+      },
+      on_finish: function(data) {
+        data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
+        data.result = data.correct ? 'right' : 'wrong';
+      }
+    };
+
+    const practice_prime_trial_nonword2 = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `
+        <div class="small-info">Practice</div>
+        <div class="stimulus">Yellow</div>
+      `,
+      choices: "NO_KEYS",
+      trial_duration: 2000,
+      data: {
+        phase: 'practice_prime',
+        practice: true,
+        prime: 'Yellow',
+        target: 'trudaki'
+      }
+    };
+
+    const practice_target_trial_nonword2 = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `
+        <div class="small-info">Practice</div>
+        <div class="stimulus">trudaki</div>
+        <p>W = real word, O = nonword</p>
+      `,
+      choices: ['w', 'o'],
+      data: {
+        phase: 'practice_target',
+        practice: true,
+        prime: 'Yellow',
+        target: 'trudaki',
+        item_type: 'nonword',
+        correct_response: 'o'
+      },
+      on_finish: function(data) {
+        data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
+        data.result = data.correct ? 'right' : 'wrong';
+      }
+    };
+    
     const practice_procedure = {
       timeline: [
         practice_intro,
