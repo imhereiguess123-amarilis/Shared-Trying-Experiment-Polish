@@ -152,14 +152,13 @@ const fillers = [
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `
         <div class="small-info">List ${selected_list_number}</div>
-        <p><strong>Hello, Welcome to this experiment!</strong></p>
-        <p>Thank you for joining!</p>
-        <p><strong>Instructions:</strong></p>
-        <p>You will be presented with a series of trials.</p>
-        <p>You will first see a Word, then a blank screen, and then another Target Word.</p>
-        <p>Please decide if the Target is a Real Word or a Nonword.</p>
-        <p>Press W for Real Word and O for Nonword.</p>
-        <p>Press W or O to begin.</p>
+        <p><strong>Cześć!</strong></p>
+        <p>Dziękujemy, że zechciałeś/aś wziąć udział w naszym eksperymencie!</p>
+        <p><strong>Instrukcje:</strong></p>
+        <p>Na ekranie zostanie pokazany ci ciąg liter, później biały ekran (przerwa) i na koniec kolejny ciąg liter.</p>
+        <p>Twoim zadaniem będzie zdecydować, czy dany ciąg liter jest prawdziwym słowem czy nie (ciąg liter bez znaczenia).</p>
+        <p>Naciśnij P dla prawdziwych słów i Q dla nieprawdziwych słów.</p>
+        <p>Naciśnij P lub Q by kontynuować.</p>
       `
     };
     timeline.push(welcome);
@@ -168,12 +167,12 @@ const fillers = [
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `
         <div class="small-info">List ${selected_list_number}</div>
-        <p><strong>Before we continue to the experiment!</strong></p>
-        <p><strong>Important! Please read and be aware of the following:</strong></p>
-        <p>By participating in this study, you confirm that you are at least 18 years old, that you have read the information provided, and that you voluntarily agree to take part.</p>
-        <p><strong>If this is not the case, please do not participate.</strong></p>
-        <p><strong>If this is the case, please participate!</strong></p>
-        <p>Press any key to begin.</p>
+        <p><strong>Zanim zaczniemy, proszę przeczytaj poniższe:</strong></p>
+        <p><strong>Uwaga!</strong></p>
+        <p>Uczestnicząc w tym badaniu, oświadczasz, że masz ukończone co najmniej 18 lat, zapoznałeś się z przedstawionymi informacjami i wyrażasz dobrowolną zgodę na udział.</p>
+        <p>Jeśli nie masz 18 lat lub nie chcesz brać udziału w badniu, proszę opuść badanie</p>
+        <p>Jeśli masz 18 lat i zgadzasz się na uział, możesz kontynuować</p>
+        <p>Naciśnij spację by kontynuować.</p>
       `
     };
     timeline.push(consent_screen);
@@ -337,10 +336,10 @@ const fillers = [
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `
         <div class="small-info">List ${selected_list_number}</div>
-        <p><strong>Before we continue</strong></p>
-        <p>Is this your first time doing this specific experiment?</p>
-        <p>Press <strong>1</strong> if this is your first time</p>
-        <p>Press <strong>2</strong> if this is your second time or more</p>
+        <p><strong>Jendak zanim zaczniemy</strong></p>
+        <p>Czy już wykonałeś to badanie?</p>
+        <p>Naciśnij <strong>1</strong> jeśli wykonujesz go po raz pierwszy</p>
+        <p>Naciśnij <strong>2</strong> jeśli jest to twój drugi lub kolejny raz</p>
       `,
       choices: ['1', '2'],
       data: {
