@@ -404,6 +404,16 @@ const fillers = [
         practice_prime_trial_nonword,
         blank,
         practice_target_trial_nonword,
+        practice_feedback,
+        fixation,
+        practice_prime_trial_real2,
+        blank,
+        practice_target_trial_real2,
+        practice_feedback,
+        fixation,
+        practice_prime_trial_nonword2,
+        blank,
+        practice_target_trial_nonword2,
         practice_feedback
       ]
     };
@@ -438,7 +448,7 @@ const fillers = [
       `,
       choices: ['q', 'p'],
       data: {
-        phase: 'handedness'
+        phase: 'handedness' 
       },
       on_finish: function(data) {
         data.handedness = data.response === 'q' ? 'left' : 'right';
@@ -454,11 +464,11 @@ const fillers = [
       stimulus: function() {
         const target = jsPsych.timelineVariable('target');
         if (target && typeof target === 'string') {
-          return `<div class="small-info">List ${selected_list_number}</div><div class="stimulus">${target}</div><p>W = real word, O = nonword</p>`;
+          return `<div class="small-info">List ${selected_list_number}</div><div class="stimulus">${target}</div><p>P = prawdziwe słowo, Q = nieprawdziwe słowo</p>`;
         }
         return target;
       },
-      choices: ['w', 'o'],
+      choices: ['p', 'q'],
       trial_duration: 3000,
       data: function() {
         return {
@@ -469,14 +479,14 @@ const fillers = [
           list: jsPsych.timelineVariable('list'),
           item_type: jsPsych.timelineVariable('item_type'),
           phase: 'target',
-          correct_response: jsPsych.timelineVariable('item_type') === 'nonword' ? 'o' : 'w'
+          correct_response: jsPsych.timelineVariable('item_type') === 'nonword' ? 'q' : 'p'
         };
       },
       on_finish: function(data) {
         const timed_out = data.response === null;
         data.timed_out = timed_out;
         data.correct = !timed_out && jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
-        data.result = data.correct ? 'right' : 'wrong';
+        data.result = data.correct ? 'Dobrze' : 'Źle';
       }
     };
 
