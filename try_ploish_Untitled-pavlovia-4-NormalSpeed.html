@@ -8,6 +8,7 @@
     <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0"></script>
     <link href="https://unpkg.com/jspsych@8.2.3/css/jspsych.css" rel="stylesheet" />
     <script type="text/javascript" src="https://pavlovia.org/lib/jspsych-7-pavlovia-2022.1.1.js"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-survey-html-form@2.1.0"></script>
 
     <style>
       .stimulus {
@@ -474,8 +475,39 @@ const fillers = [
       }
     };
 
+    const age_question = {
+  type: jsPsychSurveyHtmlForm,
+  html: `
+    <div class="small-info">List ${selected_list_number}</div>
+    <p><strong>Podaj swój wiek</strong></p>
+
+    <input 
+      name="age" 
+      type="number" 
+      min="18" 
+      max="100" 
+      required
+      style="font-size:22px; padding:10px; width:100px;"
+    >
+
+    <p style="margin-top:20px;">
+      <button type="submit" style="font-size:18px; padding:10px 20px;">
+        Dalej
+      </button>
+    </p>
+  `,
+  on_finish: function(data) {
+    const responses = JSON.parse(data.responses);
+    data.age = responses.age;
+    jsPsych.data.addProperties({
+      age: responses.age
+    });
+  }
+};
+
     timeline.push(previous_experience);
     timeline.push(handedness_question);
+    timeline.push(age_question);
     timeline.push(practice_procedure);
 
     const target_trial = {
