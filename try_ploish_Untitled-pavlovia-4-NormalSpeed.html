@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>a
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -494,10 +494,10 @@ const fillers = [
       `,
       button_label: 'Dalej',
       on_finish: function(data) {
-        const responses = JSON.parse(data.responses);
-        data.age = responses.age;
+        const responses = data.response || {};
+        data.age = responses.age || '';
         jsPsych.data.addProperties({
-          age: responses.age
+          age: data.age
         });
       }
     };
